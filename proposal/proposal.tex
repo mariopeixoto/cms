@@ -1,0 +1,48 @@
+\title{Project half-page description}
+\author{
+        Group 5394\_RR\_1\\
+        Mhaisdhune, Trupti Vishnu (tvm11)\\
+        Peixoto Costa Neto, Mario (m\_p330)\\
+        Yohannan, Blessy (b\_y17)\\
+        Zhang, Xuezhu (x\_z10)
+}
+\date{\today}
+
+\documentclass[10pt]{report}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{listings}
+
+\lstset{frameround=fttt,language=C}
+
+\begin{document}
+\maketitle
+
+\section*{Name}
+Condo Management System
+
+\section*{Problem}
+
+A law office works as a representative of several condominium administration companies. These companies may have several hundreds tenants who rents their apartments and it's very common for those tenants to skip rental and administration payments of the condo. The administration company has its own information system, but the law office only receives a monthly report with the up-to-date debts for all condos and units.
+
+The job of the law office is to look at the reports and find the tenants who are in debt for more than a certain time and notify them that they should contact the law office to settle their debts or expect to be sued. But having several companies as clients - each of them having several hundreds of tenants - can lead to a tremendous amount of labor, it's just not doable.
+
+\section*{Project}
+
+The law office needs an information system to manage:
+
+\begin{itemize}
+  \item Clients (Condo Administration Companies)
+  \item Condominiums
+  \item Units
+  \item Tenants
+  \item Debts
+  \item Notices
+\end{itemize}
+
+Each client will provide a monthly debt report with condo names, units in debt, tenants in debt, and debts information and the law office will use that report to import the data into the database.
+
+Then, the system needs a screen to help the law office to easily find who's in debt, for how long they are in debt and how much they owe. That same interface shall allow the law office to choose the tenants to be notified. After choosing, the system shall generate all the notices and the envelope labels for mailing as PDFs.
+
+After notifying the tenants, they may contact to negotiate a settlement or to pay the full amount. Then, the system shall provide a feature to mark those debts as paid.
+
+\end{document}
