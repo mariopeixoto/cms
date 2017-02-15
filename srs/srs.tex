@@ -98,20 +98,20 @@ Compatible web-browsers: Chrome, Firefox and Safari.
 \subsection{Create Client}
 \subsubsection{Description}
 
-The manager creates a client (Condo Administration Company), entering information such as name, contact name, contact phone and address.
+The manager creates a client (Condo Administration Company), entering information such as name, contact name, contact phone, address, default fine percentage and default interest percentage for late payment.
 
 \subsubsection{Rationale}
 
-This fuction will make the client available to the system in order to create the condominia managed by this client. That will be necessary to import the debts and keep an organized record.
+This function will make the client available to the system in order to create the condominia managed by this client. That will be necessary to import the debts and keep an organized record.
 
 \subsection{Edit Client}
 \subsubsection{Description}
 
-The manager edits a client (Condo Administration Company), entering information such as name, contact name, contact phone and address.
+The manager edits a client (Condo Administration Company), entering information such as name, contact name, contact phone, address, and default fine percentage and default interest percentage for late payment.
 
 \subsubsection{Rationale}
 
-This fuction will make possible to edit the client information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
+This function will make possible to edit the client information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
 
 \subsection{Remove Client}
 \subsubsection{Description}
@@ -120,67 +120,142 @@ The manager removes a client (Condo Administration Company) from the system.
 
 \subsubsection{Rationale}
 
-This fuction will make possible to remove the client from the system if the client decide to cancel the contract with the law firm. That's necessary to keep an organized record.
+This function will make possible to remove the client from the system if the client decide to cancel the contract with the law firm. That's necessary to keep an organized record.
 
 \subsection{Create Condo}
 \subsubsection{Description}
 
+The manager creates a condo, entering information such as name, address and chose the correct condo administration that manages it.
+
 \subsubsection{Rationale}
+
+This function will make the condo available to the system in order to create the units that belong to that condo. That will be necessary to import the debts and keep an organized record.
 
 \subsection{Edit Condo}
 \subsubsection{Description}
 
+The manager edits a condo, entering information such as name, address and chose the correct condo administration that manages it.
+
 \subsubsection{Rationale}
+
+This function will make possible to edit the condo information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
 
 \subsection{Remove Condo}
 \subsubsection{Description}
 
+The manager removes a condo from the system.
+
 \subsubsection{Rationale}
+
+This function will make possible to remove the condo from the system whenever the client decides it won't manage the debts from that condo anymore. That's necessary to keep an organized record.
 
 \subsection{Create Unit}
 \subsubsection{Description}
 
+The manager creates an unit, entering information such as number, building name, select the correct condo that it belongs to, and the current tenant .
+
 \subsubsection{Rationale}
+
+This function will make the unit available to the system in order to assign the tenants and debts for that unit. That will be necessary to keep an organized record.
 
 \subsection{Edit Unit}
 \subsubsection{Description}
 
+The manager edits an unit, entering information such as number, building name, the correct condo that it belongs to, and the current tenant.
+
 \subsubsection{Rationale}
+
+This function will make possible to edit the unit information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
 
 \subsection{Remove Unit}
 \subsubsection{Description}
 
+The manager removes an unit from the system.
+
 \subsubsection{Rationale}
+
+This function will make possible to remove the unit from the system whenever the client decides it won't manage the debts from that unit anymore. That's necessary to keep an organized record.
 
 \subsection{Create Tenant}
 \subsubsection{Description}
 
+The manager creates a tenant, entering information such as name, billing address, SSN, phone number.
+
 \subsubsection{Rationale}
+
+This function will make the tenant available to the system in order to manage his debts. That will be necessary to keep an organized record.
 
 \subsection{Edit Tenant}
 \subsubsection{Description}
 
+The manager edits a tenant, entering information such as name, billing address, SSN, phone number.
+
 \subsubsection{Rationale}
+
+This function will make possible to edit the tenant information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
 
 \subsection{Remove Tenant}
 \subsubsection{Description}
 
+The manager removes a tenant from the system.
+
 \subsubsection{Rationale}
+
+This function will make possible to remove the tenant from the system whenever he's not needed anymore. That's necessary to keep an organized record.
 
 \subsection{Create Debt}
 \subsubsection{Description}
 
+The manager creates a debt, entering information such as the unit in debt, description, original amount, due date, debt type (condo fee or extra fee).
+
 \subsubsection{Rationale}
+
+This function will make the debt available to the system in order to emit notices for it. That will be necessary to keep an organized record.
 
 \subsection{Edit Debt}
 \subsubsection{Description}
 
+The manager edit a debt, entering information such as the unit in debt, description, original amount, due date, debt type (condo fee or extra fee).
+
 \subsubsection{Rationale}
+
+This function will make possible to edit the debt information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
 
 \subsection{Remove Debt}
 \subsubsection{Description}
 
+The manager removes a debt from the system.
+
 \subsubsection{Rationale}
+
+This function will make possible to remove the debt from the system whenever it's not needed anymore or was incorrectly inserted in the system. That's necessary to keep an organized record.
+
+\subsection{Create Notice}
+\subsubsection{Description}
+
+The manager creates a notice, entering information such as the units that need to be notified and for which debts they are being notified.
+
+\subsubsection{Rationale}
+
+This function will make the notice available to the system in order to create the notice to be printed together with the envelope labels. That will be necessary to keep an organized record.
+
+\subsection{Edit Notice}
+\subsubsection{Description}
+
+The manager edits a notice, entering information such as the units that need to be notified and for which debts they are being notified.
+
+\subsubsection{Rationale}
+
+This function will make possible to edit the notice information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
+
+\subsection{Remove Notice}
+\subsubsection{Description}
+
+The manager removes a notice from the system.
+
+\subsubsection{Rationale}
+
+This function will make possible to remove the notice from the system whenever it's not needed anymore or was incorrectly inserted in the system. That's necessary to keep an organized record.
 
 \chapter{Other Nonfunctional Requirements}
 
