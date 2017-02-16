@@ -257,51 +257,40 @@ The manager removes a notice from the system.
 
 This function will make possible to remove the notice from the system whenever it's not needed anymore or was incorrectly inserted in the system. That's necessary to keep an organized record.
 
+\subsection{Import Monthly Report}
+\subsubsection{Description}
+
+The manager imports the monthly debt report provided by each client. The report contains the expanded outstanding debt for each unit for all condos managed by the client (Condo Administration Company).
+
+\subsubsection{Rationale}
+
+This function will make possible to import the monthly report data into the system in order to reconcile the system data with the outstanding debts and provide the option to emit notices for those debts.
+
+\subsection{Emit Notices}
+\subsubsection{Description}
+
+The manager selects which units and debts to emit notices and the system generates notice letters and envelope labels.
+
+\subsubsection{Rationale}
+
+This function will make possible to inform a tenant of the outstanding debt and provide a chance for him to settle the debt before being sued or evicted.
+
 \chapter{Other Nonfunctional Requirements}
 
 \section{Performance Requirements}
-$<$If there are performance requirements for the product under various
-circumstances, state them here and explain their rationale, to help the
-developers understand the intent and make suitable design choices. Specify the
-timing relationships for real time systems. Make such requirements as specific
-as possible. You may need to state performance requirements for individual
-functional requirements or features.$>$
+The system response time shall not exceed 10 seconds for any user interaction event.
 
-\section{Safety Requirements}
-$<$Specify those requirements that are concerned with possible loss, damage, or
-harm that could result from the use of the product. Define any safeguards or
-actions that must be taken, as well as actions that must be prevented. Refer to
-any external policies or regulations that state safety issues that affect the
-product’s design or use. Define any safety certifications that must be
-satisfied.$>$
+\section{Reliability Requirements}
+The application’s mean time between failures shall be at least 1 month.
 
-\section{Security Requirements}
-$<$Specify any requirements regarding security or privacy issues surrounding use
-of the product or protection of the data used or created by the product. Define
-any user identity authentication requirements. Refer to any external policies or
-regulations containing security issues that affect the product. Define any
-security or privacy certifications that must be satisfied.$>$
+\section{Robustness Requirements}
+The application shall provide a meaningful error message and continue to operate properly when a human user provides incorrect inputs.
 
-\section{Software Quality Attributes}
-$<$Specify any additional quality characteristics for the product that will be
-important to either the customers or the developers. Some to consider are:
-adaptability, availability, correctness, flexibility, interoperability,
-maintainability, portability, reliability, reusability, robustness, testability,
-and usability. Write these to be specific, quantitative, and verifiable when
-possible. At the least, clarify the relative preferences for various attributes,
-such as ease of use over ease of learning.$>$
+\section{Maintainability Requirements}
+The average person-time required to make a minor enhancement (including testing and documentation update) shall not exceed one person week.
 
-\section{Business Rules}
-$<$List any operating principles about the product, such as which individuals or
-roles can perform which functions under specific circumstances. These are not
-functional requirements in themselves, but they may imply certain functional
-requirements to enforce the rules.$>$
-
-
-\chapter{Other Requirements}
-$<$Define any other requirements not covered elsewhere in the SRS. This might
-include database requirements, internationalization requirements, legal
-requirements, reuse objectives for the project, and so on. Add any new sections
-that are pertinent to the project.$>$
+\section{Usability Requirements}
+The application’s user interface shall be clear to its users.
+Specifically, at least 70\% of a statistically valid sample of users shall rate the overall user interface as being either very clear or clear on the following scale (very clear, clear, neutral, unclear, very unclear).
 
 \end{document}
