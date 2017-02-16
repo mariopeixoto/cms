@@ -293,6 +293,15 @@ The average person-time required to make a minor enhancement (including testing 
 The application’s user interface shall be clear to its users.
 Specifically, at least 70\% of a statistically valid sample of users shall rate the overall user interface as being either very clear or clear on the following scale (very clear, clear, neutral, unclear, very unclear).
 
+\chapter{Constraints}
+
+\section{Design}
+The performance of the system depends on the underlying server and the database system.
+Web page scaling depends on the device and the browser used.
+
+\section{Implementation}
+The system functionality depends on the ability to reliably transfer data over an active Internet connection. If the connection has high latency or bandwidth issues then the response time may be slower than desired.
+
 \nocite{ieee}
 
 \bibliographystyle{ieeetr}
