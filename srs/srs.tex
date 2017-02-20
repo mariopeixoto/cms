@@ -52,7 +52,7 @@
         \vspace{1.5cm}
         Condo Management System\\
         \vspace{1.5cm}
-        \LARGE{Version \myversion draft}\\
+        \LARGE{Version \myversion}\\
         \vspace{1.5cm}
         Prepared by Mhaisdhune, Trupti Vishnu\\
         Peixoto Costa Neto, Mario\\
@@ -104,6 +104,9 @@ The manager creates a client (Condo Administration Company), entering informatio
 
 This function will make the client available to the system in order to create the condominia managed by this client. That will be necessary to import the debts and keep an organized record.
 
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/createclient.png}
+
 \subsection{Edit Client}
 \subsubsection{Description}
 
@@ -112,6 +115,9 @@ The manager edits a client (Condo Administration Company), entering information 
 \subsubsection{Rationale}
 
 This function will make possible to edit the client information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
+
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/editclient.png}
 
 \subsection{Remove Client}
 \subsubsection{Description}
@@ -131,6 +137,9 @@ The manager creates a condo, entering information such as name, address and chos
 
 This function will make the condo available to the system in order to create the units that belong to that condo. That will be necessary to import the debts and keep an organized record.
 
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/createcondo.png}
+
 \subsection{Edit Condo}
 \subsubsection{Description}
 
@@ -139,6 +148,9 @@ The manager edits a condo, entering information such as name, address and chose 
 \subsubsection{Rationale}
 
 This function will make possible to edit the condo information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
+
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/editcondo.png}
 
 \subsection{Remove Condo}
 \subsubsection{Description}
@@ -158,6 +170,9 @@ The manager creates an unit, entering information such as number, building name,
 
 This function will make the unit available to the system in order to assign the tenants and debts for that unit. That will be necessary to keep an organized record.
 
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/createunit.png}
+
 \subsection{Edit Unit}
 \subsubsection{Description}
 
@@ -166,6 +181,9 @@ The manager edits an unit, entering information such as number, building name, t
 \subsubsection{Rationale}
 
 This function will make possible to edit the unit information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
+
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/editunit.png}
 
 \subsection{Remove Unit}
 \subsubsection{Description}
@@ -185,6 +203,9 @@ The manager creates a tenant, entering information such as name, billing address
 
 This function will make the tenant available to the system in order to manage his debts. That will be necessary to keep an organized record.
 
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/createtenant.png}
+
 \subsection{Edit Tenant}
 \subsubsection{Description}
 
@@ -193,6 +214,9 @@ The manager edits a tenant, entering information such as name, billing address, 
 \subsubsection{Rationale}
 
 This function will make possible to edit the tenant information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
+
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/edittenant.png}
 
 \subsection{Remove Tenant}
 \subsubsection{Description}
@@ -212,6 +236,9 @@ The manager creates a debt, entering information such as the unit in debt, descr
 
 This function will make the debt available to the system in order to emit notices for it. That will be necessary to keep an organized record.
 
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/createdebt.png}
+
 \subsection{Edit Debt}
 \subsubsection{Description}
 
@@ -220,6 +247,9 @@ The manager edit a debt, entering information such as the unit in debt, descript
 \subsubsection{Rationale}
 
 This function will make possible to edit the debt information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
+
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/editdebt.png}
 
 \subsection{Remove Debt}
 \subsubsection{Description}
@@ -233,20 +263,26 @@ This function will make possible to remove the debt from the system whenever it'
 \subsection{Create Notice}
 \subsubsection{Description}
 
-The manager creates a notice, entering information such as the units that need to be notified and for which debts they are being notified.
+The manager creates a notice, entering information such as the tenant that needs to be notified and for which debts they are being notified.
 
 \subsubsection{Rationale}
 
 This function will make the notice available to the system in order to create the notice to be printed together with the envelope labels. That will be necessary to keep an organized record.
 
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/createnotice.png}
+
 \subsection{Edit Notice}
 \subsubsection{Description}
 
-The manager edits a notice, entering information such as the units that need to be notified and for which debts they are being notified.
+The manager edits a notice, entering information such as the tenant that needs to be notified and for which debts they are being notified.
 
 \subsubsection{Rationale}
 
 This function will make possible to edit the notice information whenever the data's changed or it was entered incorrectly. That's necessary to keep an organized record.
+
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/editnotice.png}
 
 \subsection{Remove Notice}
 \subsubsection{Description}
@@ -266,14 +302,8 @@ The manager imports the monthly debt report provided by each client. The report 
 
 This function will make possible to import the monthly report data into the system in order to reconcile the system data with the outstanding debts and provide the option to emit notices for those debts.
 
-\subsection{Emit Notices}
-\subsubsection{Description}
-
-The manager selects which units and debts to emit notices and the system generates notice letters and envelope labels.
-
-\subsubsection{Rationale}
-
-This function will make possible to inform a tenant of the outstanding debt and provide a chance for him to settle the debt before being sued or evicted.
+\subsubsection{UI wireframe}
+\includegraphics[scale=0.60]{mockups/importreport.png}
 
 \chapter{Other Nonfunctional Requirements}
 
