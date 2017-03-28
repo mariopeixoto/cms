@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @debt.description %>
+</p>
+
+<p>
+  <strong>Original amount:</strong>
+  <%= @debt.original_amount %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @debt.due_date %>
+</p>
+
+<p>
+  <strong>Debt type:</strong>
+  <%= @debt.debt_type %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @debt.unit %>
+</p>
+
+<p>
+  <strong>Tenant:</strong>
+  <%= @debt.tenant %>
+</p>
+
+<%= link_to 'Edit', edit_debt_path(@debt) %> |
+<%= link_to 'Back', debts_path %>
