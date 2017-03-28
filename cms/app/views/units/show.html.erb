@@ -12,12 +12,12 @@
 
 <p>
   <strong>Condo:</strong>
-  <%= @unit.condo %>
+  <%= @unit.condo.name %>
 </p>
 
 <p>
   <strong>Tenant:</strong>
-  <%= @unit.tenant %>
+  <%= @unit.tenant.present? ? @unit.tenant.name : '' %>
 </p>
 
 <%= link_to 'Edit', edit_unit_path(@unit) %> |

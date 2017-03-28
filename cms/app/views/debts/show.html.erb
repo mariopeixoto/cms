@@ -17,17 +17,17 @@
 
 <p>
   <strong>Debt type:</strong>
-  <%= @debt.debt_type %>
+  <%= @debt.debt_type.humanize %>
 </p>
 
 <p>
   <strong>Unit:</strong>
-  <%= @debt.unit %>
+  <%= @debt.unit.condo.name %> - <%= @debt.unit.number %>
 </p>
 
 <p>
   <strong>Tenant:</strong>
-  <%= @debt.tenant %>
+  <%= @debt.tenant.name %>
 </p>
 
 <%= link_to 'Edit', edit_debt_path(@debt) %> |

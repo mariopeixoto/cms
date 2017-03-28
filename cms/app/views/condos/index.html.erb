@@ -15,7 +15,7 @@
       <tr>
         <td><%= condo.name %></td>
         <td><%= condo.address %></td>
-        <td><%= condo.client %></td>
+        <td><%= condo.client.name %></td>
         <td><%= link_to 'Show', condo %></td>
         <td><%= link_to 'Edit', edit_condo_path(condo) %></td>
         <td><%= link_to 'Destroy', condo, method: :delete, data: { confirm: 'Are you sure?' } %></td>

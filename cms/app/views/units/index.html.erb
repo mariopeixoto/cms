@@ -16,8 +16,8 @@
       <tr>
         <td><%= unit.number %></td>
         <td><%= unit.building_name %></td>
-        <td><%= unit.condo %></td>
-        <td><%= unit.tenant %></td>
+        <td><%= unit.condo.name %></td>
+        <td><%= unit.tenant.present? ? unit.tenant.name : '' %></td>
         <td><%= link_to 'Show', unit %></td>
         <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
         <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>

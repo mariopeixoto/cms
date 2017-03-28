@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328162102) do
+ActiveRecord::Schema.define(version: 20170328162827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,27 @@ ActiveRecord::Schema.define(version: 20170328162102) do
   end
 
   add_index "condos", ["client_id"], name: "index_condos_on_client_id", using: :btree
+
+  create_table "debts", force: true do |t|
+    t.string   "description"
+    t.float    "original_amount", null: false
+    t.date     "due_date",        null: false
+    t.string   "debt_type",       null: false
+    t.integer  "unit_id",         null: false
+    t.integer  "tenant_id",       null: false
+    t.integer  "notice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "debts", ["notice_id"], name: "index_debts_on_notice_id", using: :btree
+  add_index "debts", ["tenant_id"], name: "index_debts_on_tenant_id", using: :btree
+  add_index "debts", ["unit_id"], name: "index_debts_on_unit_id", using: :btree
+
+  create_table "notices", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tenants", force: true do |t|
     t.string   "name",            null: false

@@ -25,15 +25,18 @@
   </div>
   <div class="field">
     <%= f.label :debt_type %><br>
-    <%= f.number_field :debt_type %>
+    <%#= f.number_field :debt_type %>
+    <%= f.select :debt_type, Debt.debt_types.keys.map { |w| [w.humanize, w] } %>
   </div>
   <div class="field">
     <%= f.label :unit_id %><br>
-    <%= f.text_field :unit_id %>
+    <%#= f.text_field :unit_id %>
+    <%= f.select :unit_id, Unit.all.collect {|u| ["#{u.condo.name} - #{u.number}", u.id]} %>
   </div>
   <div class="field">
     <%= f.label :tenant_id %><br>
-    <%= f.text_field :tenant_id %>
+    <%#= f.text_field :tenant_id %>
+    <%= f.select :tenant_id, Tenant.all.collect {|t| [t.name, t.id]} %>
   </div>
   <div class="actions">
     <%= f.submit %>

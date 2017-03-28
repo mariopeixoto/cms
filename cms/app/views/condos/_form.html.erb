@@ -21,7 +21,8 @@
   </div>
   <div class="field">
     <%= f.label :client_id %><br>
-    <%= f.text_field :client_id %>
+    <%#= f.text_field :client_id %>
+    <%= f.select :client_id, Client.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="actions">
     <%= f.submit %>
