@@ -1,4 +1,4 @@
-class CondosController < ApplicationController
+class CondosController < SecuredController
   before_action :set_condo, only: [:show, :edit, :update, :destroy]
 
   # GET /condos

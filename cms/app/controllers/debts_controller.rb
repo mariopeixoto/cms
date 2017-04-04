@@ -1,4 +1,4 @@
-class DebtsController < ApplicationController
+class DebtsController < SecuredController
   before_action :set_debt, only: [:show, :edit, :update, :destroy]
 
   # GET /debts

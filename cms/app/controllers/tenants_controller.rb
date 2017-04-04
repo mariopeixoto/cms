@@ -1,4 +1,4 @@
-class TenantsController < ApplicationController
+class TenantsController < SecuredController
   before_action :set_tenant, only: [:show, :edit, :update, :destroy]
 
   # GET /tenants

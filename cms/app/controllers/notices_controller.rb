@@ -1,4 +1,4 @@
-class NoticesController < ApplicationController
+class NoticesController < SecuredController
   before_action :set_notice, only: [:show, :edit, :update, :destroy]
 
   # GET /notices
