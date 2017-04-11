@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.8'
+gem 'rails', '4.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -41,4 +41,11 @@ gem 'spring',        group: :development
 gem 'bootswatch-rails'
 gem 'bootstrap-sass'
 gem 'normalize-rails'
-gem 'devise'
+gem 'devise'#, '4.1.0'
+
+gem 'carrierwave', '~> 1.0'
+gem 'smarter_csv'
+
+gem 'rspec-rails', '~> 3.5'
+gem 'factory_girl_rails'
+gem 'faker'

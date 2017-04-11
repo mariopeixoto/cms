@@ -21,9 +21,9 @@
             <li><%= link_to 'Tenants', tenants_path %></li>
             <li><%= link_to 'Debts', debts_path %></li>
             <!-- <li><%= link_to 'Notices', notices_path %></li> -->
+            <li><%= link_to 'Imports', imports_path %></li>
           </ul>
         </li>
-        <li><a href="#">Import debts</a></li>
         <li><a href="#about">Emit Notices</a></li>
       </ul>
       <% end %>
@@ -33,9 +33,6 @@
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
           </li>
         <% else %>
-          <li>
-            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-          </li>
           <li>
             <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
           </li>
