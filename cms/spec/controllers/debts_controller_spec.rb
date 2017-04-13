@@ -110,8 +110,8 @@ RSpec.describe DebtsController, :type => :controller do
         post :create, debt: debt.attributes
       }.to change(Debt, :count).by(1)
 
-      assigns(:debt).should be_a(Debt)
-      assigns(:debt).should be_persisted
+      expect(assigns(:debt)).to be_a(Debt)
+      expect(assigns(:debt)).to be_persisted
     end
 
     it "does not create the client when there are validation errors" do
@@ -124,8 +124,8 @@ RSpec.describe DebtsController, :type => :controller do
         post :create, debt: debt.attributes.except('original_amount')
       }.to change(Debt, :count).by(0)
 
-      assigns(:debt).should be_a(Debt)
-      assigns(:debt).should_not be_persisted
+      expect(assigns(:debt)).to be_a(Debt)
+      expect(assigns(:debt)).to_not be_persisted
     end
 
     it "redirects to sign in when it's not authenticated" do

@@ -110,8 +110,8 @@ RSpec.describe UnitsController, :type => :controller do
         post :create, unit: unit.attributes
       }.to change(Unit, :count).by(1)
 
-      assigns(:unit).should be_a(Unit)
-      assigns(:unit).should be_persisted
+      expect(assigns(:unit)).to be_a(Unit)
+      expect(assigns(:unit)).to be_persisted
     end
 
     it "does not create the client when there are validation errors" do
@@ -124,8 +124,8 @@ RSpec.describe UnitsController, :type => :controller do
         post :create, unit: unit.attributes.except('number')
       }.to change(Unit, :count).by(0)
 
-      assigns(:unit).should be_a(Unit)
-      assigns(:unit).should_not be_persisted
+      expect(assigns(:unit)).to be_a(Unit)
+      expect(assigns(:unit)).to_not be_persisted
     end
 
     it "redirects to sign in when it's not authenticated" do

@@ -110,8 +110,8 @@ RSpec.describe ClientsController, :type => :controller do
         post :create, client: client.attributes
       }.to change(Client, :count).by(1)
 
-      assigns(:client).should be_a(Client)
-      assigns(:client).should be_persisted
+      expect(assigns(:client)).to be_a(Client)
+      expect(assigns(:client)).to be_persisted
     end
 
     it "does not create the client when there are validation errors" do
@@ -124,8 +124,8 @@ RSpec.describe ClientsController, :type => :controller do
         post :create, client: client.attributes.except('name')
       }.to change(Client, :count).by(0)
 
-      assigns(:client).should be_a(Client)
-      assigns(:client).should_not be_persisted
+      expect(assigns(:client)).to be_a(Client)
+      expect(assigns(:client)).to_not be_persisted
     end
 
     it "redirects to sign in when it's not authenticated" do

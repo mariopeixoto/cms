@@ -110,8 +110,8 @@ RSpec.describe TenantsController, :type => :controller do
         post :create, tenant: tenant.attributes
       }.to change(Tenant, :count).by(1)
 
-      assigns(:tenant).should be_a(Tenant)
-      assigns(:tenant).should be_persisted
+      expect(assigns(:tenant)).to be_a(Tenant)
+      expect(assigns(:tenant)).to be_persisted
     end
 
     it "does not create the client when there are validation errors" do
@@ -124,8 +124,8 @@ RSpec.describe TenantsController, :type => :controller do
         post :create, tenant: tenant.attributes.except('ssn')
       }.to change(Tenant, :count).by(0)
 
-      assigns(:tenant).should be_a(Tenant)
-      assigns(:tenant).should_not be_persisted
+      expect(assigns(:tenant)).to be_a(Tenant)
+      expect(assigns(:tenant)).to_not be_persisted
     end
 
     it "redirects to sign in when it's not authenticated" do

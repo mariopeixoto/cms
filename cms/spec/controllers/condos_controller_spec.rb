@@ -110,8 +110,8 @@ RSpec.describe CondosController, :type => :controller do
         post :create, condo: condo.attributes
       }.to change(Condo, :count).by(1)
 
-      assigns(:condo).should be_a(Condo)
-      assigns(:condo).should be_persisted
+      expect(assigns(:condo)).to be_a(Condo)
+      expect(assigns(:condo)).to be_persisted
     end
 
     it "does not create the client when there are validation errors" do
@@ -124,8 +124,8 @@ RSpec.describe CondosController, :type => :controller do
         post :create, condo: condo.attributes.except('name')
       }.to change(Condo, :count).by(0)
 
-      assigns(:condo).should be_a(Condo)
-      assigns(:condo).should_not be_persisted
+      expect(assigns(:condo)).to be_a(Condo)
+      expect(assigns(:condo)).to_not be_persisted
     end
 
     it "redirects to sign in when it's not authenticated" do
