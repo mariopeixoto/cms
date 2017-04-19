@@ -50,5 +50,6 @@ gem 'smarter_csv'
 gem 'rspec-rails', '~> 3.5'
 gem 'factory_girl_rails'
 gem 'faker'
+gem 'money'
 
 gem 'rails_12factor', group: :production

@@ -1,0 +1,29 @@
+<form>
+  In debt for more than (days): <input type="text" name="search_days" value="<%= @days %>"/>
+  Amount greater than: <input type="text" name="search_amount" value="<%= @amount %>"/>
+  <input type="submit" value="Refine search" />
+</form>
+
+<%= form_tag do %>
+<h1>Select debts below to emit notices</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th><input id="debt_check_all" type="checkbox" />Select all</th>
+      <th>Updated amount after fine and interest</th>
+      <th>Days in debt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @debts.each do |debt| %>
+      <tr>
+        <td><input name="debt_ids[]" type="checkbox" value="<%= debt.id %>"/></td>
+        <td><%= Money.new(debt.updated_amount*100, "USD").format %></td>
+        <td><%= debt.days_in_debt %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<input type="submit" value="Emit Notices"/>
+<% end %>

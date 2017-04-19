@@ -1,0 +1,9 @@
+Hello <%= @tenant.name %>,
+
+We are sending this email because you have the outstading debts listed below:
+
+<% @debts.each do |debt| %>
+  Condo: <%= debt.unit.condo.name %>, Unit: <%= debt.unit.number %>, Building: <%= debt.unit.building_name %>, Due Date: <%= debt.due_date %>, Updated amount <%= Money.new(debt.updated_amount*100, "USD").format %>
+<% end %>
+
+Please reach out to our leasing office in order to pay the required amount.

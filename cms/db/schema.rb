@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411181149) do
+ActiveRecord::Schema.define(version: 20170419025704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,28 +39,23 @@ ActiveRecord::Schema.define(version: 20170411181149) do
 
   create_table "debts", force: :cascade do |t|
     t.string   "description",     limit: 255
-    t.float    "original_amount",             null: false
-    t.date     "due_date",                    null: false
-    t.string   "debt_type",       limit: 255, null: false
-    t.integer  "unit_id",                     null: false
-    t.integer  "tenant_id",                   null: false
-    t.integer  "notice_id"
+    t.float    "original_amount",                             null: false
+    t.date     "due_date",                                    null: false
+    t.string   "debt_type",       limit: 255,                 null: false
+    t.integer  "unit_id",                                     null: false
+    t.integer  "tenant_id",                                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "paid",                        default: false
+    t.boolean  "notified",                    default: false
   end
 
-  add_index "debts", ["notice_id"], name: "index_debts_on_notice_id", using: :btree
   add_index "debts", ["tenant_id"], name: "index_debts_on_tenant_id", using: :btree
   add_index "debts", ["unit_id"], name: "index_debts_on_unit_id", using: :btree
 
   create_table "imports", force: :cascade do |t|
-    t.string   "debt_report"
-    t.string   "status",      default: "waiting"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "notices", force: :cascade do |t|
+    t.string   "debt_report", limit: 255
+    t.string   "status",      limit: 255, default: "waiting"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -72,6 +67,7 @@ ActiveRecord::Schema.define(version: 20170411181149) do
     t.string   "phone_number",    limit: 255, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
   create_table "units", force: :cascade do |t|

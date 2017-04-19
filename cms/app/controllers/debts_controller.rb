@@ -4,7 +4,7 @@ class DebtsController < SecuredController
   # GET /debts
   # GET /debts.json
   def index
-    @debts = Debt.all
+    @debts = Debt.where(paid: false)
   end
 
   # GET /debts/1

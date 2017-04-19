@@ -8,11 +8,15 @@ class ProcessDebtReportJob < ActiveJob::Base
     import.status = :processing
     import.save!
 
+    current_debts = []
     SmarterCSV.process(import.debt_report.path, {}) do |chunk|
       chunk.each do |data_hash|
-        process_record(data_hash)
+        debt = process_record(data_hash)
+        current_debts << debt
       end
     end
+
+    Debt.where('id NOT IN (?) AND paid = ?', current_debts.collect {|cd| cd.id }, false).update_all(paid: true)
 
     import.status = :processed
     import.save!
@@ -21,7 +25,6 @@ class ProcessDebtReportJob < ActiveJob::Base
   private
     def process_record(row)
 
-      #TODO update stuff if it exists?
       client = Client.find_or_create_by(name: row[:client_name]) do |c|
         c.contact_name = row[:client_contact_name]
         c.contact_phone = row[:client_contact_phone]
@@ -38,6 +41,7 @@ class ProcessDebtReportJob < ActiveJob::Base
         t.name = row[:tenant_name]
         t.billing_address = row[:tenant_billing_address]
         t.phone_number = row[:tenant_phone_number]
+        t.email = row[:tenant_email]
       end
 
       unit = Unit.find_or_create_by(number: row[:unit_number], building_name: row[:unit_building], condo: condo) do |u|
@@ -48,6 +52,8 @@ class ProcessDebtReportJob < ActiveJob::Base
         d.description = row[:debt_description]
         d.original_amount = row[:debt_original_amount]
       end
+
+      debt
 
     end
 end
