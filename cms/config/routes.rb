@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   resources :clients
 
+  get 'emit_notices' => 'emit_notices#index'
+  post 'emit_notices' => 'emit_notices#emit'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
