@@ -69,6 +69,6 @@ class TenantsController < SecuredController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tenant_params
-      params.require(:tenant).permit(:name, :billing_address, :ssn, :phone_number)
+      params.require(:tenant).permit(:name, :billing_address, :ssn, :phone_number, :email)
     end
 end
