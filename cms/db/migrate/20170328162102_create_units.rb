@@ -8,5 +8,8 @@ class CreateUnits < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_foreign_key :units, :condos
+    add_foreign_key :units, :tenants
   end
 end

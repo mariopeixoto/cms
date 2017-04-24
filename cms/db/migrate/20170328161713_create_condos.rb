@@ -7,5 +7,7 @@ class CreateCondos < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_foreign_key :condos, :clients
   end
 end

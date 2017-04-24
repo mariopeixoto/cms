@@ -2,7 +2,6 @@ Client_Name,Client_Contact_Name,Client_Contact_Phone,Client_Address,Client_Defau
 Client 1,Mario,12345678,10323 Research Blvd.,2.0,1.0,Condo 1,10447 Research Blvd.,2302,2,John Doe,10447 Research Blvd. Apt 2302,111111111111,1234567890,tenant1@email.com,Rent January/2017,RENT,1200,01/01/2017,
 Client 1,Mario,12345678,10323 Research Blvd.,2.0,1.0,Condo 1,10447 Research Blvd.,2301,2,John Doe II,10447 Research Blvd. Apt 2301,111111111112,1234567890,tenant2@email.com,Rent January/2017,RENT,1350,01/01/2017,
 Client 1,Mario,12345678,10323 Research Blvd.,2.0,1.0,Condo 2,11000 Research Blvd.,100,1,John Doe III,11000 Research Blvd. Apt 100,111111111113,1234567890,tenant3@email.com,Rent January/2017,RENT,1100,01/01/2017,
-Client 2,Contact 2,12345678,10000 Research Blvd.,2.0,1.0,Condo 3,13000 Research Blvd.,1101,1,John Doe Junior,13000 Research Blvd. Apt 1101,111111111114,1234567890,tenant4@email.com,Rent January/2017,RENT,800,01/01/2017,
 ,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,

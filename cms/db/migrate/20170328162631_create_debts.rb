@@ -11,5 +11,8 @@ class CreateDebts < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_foreign_key :debts, :units
+    add_foreign_key :debts, :tenants
   end
 end

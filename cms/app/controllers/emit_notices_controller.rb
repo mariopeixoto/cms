@@ -5,7 +5,7 @@ class EmitNoticesController < SecuredController
     @days = params[:search_days].present? ? params[:search_days].to_i : 0
     @amount = params[:search_amount].present? ? params[:search_amount].to_f : 0
 
-    @debts = Debt.where(notified: false).all.select { |d| d.updated_amount >= @amount and d.days_in_debt >= @days }
+    @debts = Debt.where(notified: false, paid: false).select { |d| d.updated_amount >= @amount and d.days_in_debt >= @days }
   end
 
   def emit

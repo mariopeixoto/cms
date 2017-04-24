@@ -11,34 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+  <div class="field form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :original_amount %><br>
-    <%= f.text_field :original_amount %>
+  <div class="field form-group">
+    <%= f.label :original_amount %>
+    <%= f.text_field :original_amount, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :due_date %><br>
-    <%= f.date_select :due_date %>
+  <div class="field form-group">
+    <%= f.label :due_date %>
+    <%= f.date_select :due_date, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :debt_type %><br>
-    <%#= f.number_field :debt_type %>
-    <%= f.select :debt_type, Debt.debt_types.keys.map { |w| [w.humanize, w] } %>
+  <div class="field form-group">
+    <%= f.label :debt_type %>
+    <%= f.select :debt_type, Debt.debt_types.keys.map { |w| [w.humanize, w] }, {}, {class: 'form-control'} %>
   </div>
-  <div class="field">
-    <%= f.label :unit_id %><br>
-    <%#= f.text_field :unit_id %>
-    <%= f.select :unit_id, Unit.all.collect {|u| ["#{u.condo.name} - #{u.number}", u.id]} %>
+  <div class="field form-group">
+    <%= f.label :unit_id %>
+    <%= f.select :unit_id, Unit.all.collect {|u| ["#{u.condo.name} - #{u.number}", u.id]}, {}, {class: 'form-control'} %>
   </div>
-  <div class="field">
-    <%= f.label :tenant_id %><br>
-    <%#= f.text_field :tenant_id %>
-    <%= f.select :tenant_id, Tenant.all.collect {|t| [t.name, t.id]} %>
+  <div class="field form-group">
+    <%= f.label :tenant_id %>
+    <%= f.select :tenant_id, Tenant.all.collect {|t| [t.name, t.id]}, {}, {class: 'form-control'} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

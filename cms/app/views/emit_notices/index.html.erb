@@ -1,7 +1,17 @@
-<form>
-  In debt for more than (days): <input type="text" name="search_days" value="<%= @days %>"/>
-  Amount greater than: <input type="text" name="search_amount" value="<%= @amount %>"/>
-  <input type="submit" value="Refine search" />
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon">In debt for more than (days):</span>
+      <input type="text" id="search_days" name="search_days" value="<%= @days %>" class="form-control"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon">Amount greater than:</span>
+      <input type="text" id="search_amount" name="search_amount" value="<%= @amount %>" class="form-control"/>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Refine search</button>
 </form>
 
 <%= form_tag do %>
@@ -9,7 +19,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th><input id="debt_check_all" type="checkbox" />Select all</th>
+      <th><input id="debt_check_all" type="checkbox" /> Select all</th>
       <th>Updated amount after fine and interest</th>
       <th>Days in debt</th>
     </tr>
@@ -25,5 +35,5 @@
   </tbody>
 </table>
 
-<input type="submit" value="Emit Notices"/>
+<input type="submit" value="Emit Notices" class="btn btn-primary"/>
 <% end %>

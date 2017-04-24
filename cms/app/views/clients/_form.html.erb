@@ -11,31 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="field form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :contact_name %><br>
-    <%= f.text_field :contact_name %>
+  <div class="field form-group">
+    <%= f.label :contact_name %>
+    <%= f.text_field :contact_name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :contact_phone %><br>
-    <%= f.text_field :contact_phone %>
+  <div class="field form-group">
+    <%= f.label :contact_phone %>
+    <%= f.text_field :contact_phone, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_area :address %>
+  <div class="field form-group">
+    <%= f.label :address %>
+    <%= f.text_area :address, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :default_fine %><br>
-    <%= f.text_field :default_fine %>
+  <div class="field form-group">
+    <%= f.label :default_fine %>
+    <div class="input-group">
+      <%= f.text_field :default_fine, class: 'form-control' %>
+      <span class="input-group-addon">%</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :default_interest %><br>
-    <%= f.text_field :default_interest %>
+  <div class="field form-group">
+    <%= f.label :default_interest %>
+    <div class="input-group">
+      <%= f.text_field :default_interest, class: 'form-control' %>
+      <span class="input-group-addon">%</span>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -11,25 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :number %><br>
-    <%= f.text_field :number %>
+  <div class="field form-group">
+    <%= f.label :number %>
+    <%= f.text_field :number, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :building_name %><br>
-    <%= f.text_field :building_name %>
+  <div class="field form-group">
+    <%= f.label :building_name %>
+    <%= f.text_field :building_name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :condo_id %><br>
-    <%#= f.text_field :condo_id %>
-    <%= f.select :condo_id, Condo.all.collect {|c| [c.name, c.id]} %>
+  <div class="field form-group">
+    <%= f.label :condo_id %>
+    <%= f.select :condo_id, Condo.all.collect {|c| [c.name, c.id]}, {}, {class: 'form-control'} %>
   </div>
-  <div class="field">
-    <%= f.label :tenant_id %><br>
-    <%#= f.text_field :tenant_id %>
-    <%= f.select :tenant_id, Tenant.all.collect {|c| [c.name, c.id]}, include_blank: true %>
+  <div class="field form-group">
+    <%= f.label :tenant_id %>
+    <%= f.select :tenant_id, Tenant.all.collect {|c| [c.name, c.id]}, {include_blank: true}, {class: 'form-control'} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

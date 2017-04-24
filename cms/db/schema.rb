@@ -17,20 +17,20 @@ ActiveRecord::Schema.define(version: 20170419025704) do
   enable_extension "plpgsql"
 
   create_table "clients", force: :cascade do |t|
-    t.string   "name",             limit: 255,               null: false
-    t.string   "contact_name",     limit: 255
-    t.string   "contact_phone",    limit: 255
+    t.string   "name",                           null: false
+    t.string   "contact_name"
+    t.string   "contact_phone"
     t.text     "address"
-    t.float    "default_fine",                 default: 2.0
-    t.float    "default_interest",             default: 1.0
+    t.float    "default_fine",     default: 2.0
+    t.float    "default_interest", default: 1.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "condos", force: :cascade do |t|
-    t.string   "name",       limit: 255, null: false
+    t.string   "name",       null: false
     t.text     "address"
-    t.integer  "client_id",              null: false
+    t.integer  "client_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,42 +38,42 @@ ActiveRecord::Schema.define(version: 20170419025704) do
   add_index "condos", ["client_id"], name: "index_condos_on_client_id", using: :btree
 
   create_table "debts", force: :cascade do |t|
-    t.string   "description",     limit: 255
-    t.float    "original_amount",                             null: false
-    t.date     "due_date",                                    null: false
-    t.string   "debt_type",       limit: 255,                 null: false
-    t.integer  "unit_id",                                     null: false
-    t.integer  "tenant_id",                                   null: false
+    t.string   "description"
+    t.float    "original_amount",                 null: false
+    t.date     "due_date",                        null: false
+    t.string   "debt_type",                       null: false
+    t.integer  "unit_id",                         null: false
+    t.integer  "tenant_id",                       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "paid",                        default: false
-    t.boolean  "notified",                    default: false
+    t.boolean  "paid",            default: false
+    t.boolean  "notified",        default: false
   end
 
   add_index "debts", ["tenant_id"], name: "index_debts_on_tenant_id", using: :btree
   add_index "debts", ["unit_id"], name: "index_debts_on_unit_id", using: :btree
 
   create_table "imports", force: :cascade do |t|
-    t.string   "debt_report", limit: 255
-    t.string   "status",      limit: 255, default: "waiting"
+    t.string   "debt_report"
+    t.string   "status",      default: "waiting"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tenants", force: :cascade do |t|
-    t.string   "name",            limit: 255, null: false
-    t.text     "billing_address",             null: false
-    t.string   "ssn",             limit: 255, null: false
-    t.string   "phone_number",    limit: 255, null: false
+    t.string   "name",            null: false
+    t.text     "billing_address", null: false
+    t.string   "ssn",             null: false
+    t.string   "phone_number",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
   end
 
   create_table "units", force: :cascade do |t|
-    t.string   "number",        limit: 255, null: false
-    t.string   "building_name", limit: 255, null: false
-    t.integer  "condo_id",                  null: false
+    t.string   "number",        null: false
+    t.string   "building_name", null: false
+    t.integer  "condo_id",      null: false
     t.integer  "tenant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -83,12 +83,12 @@ ActiveRecord::Schema.define(version: 20170419025704) do
   add_index "units", ["tenant_id"], name: "index_units_on_tenant_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -100,4 +100,9 @@ ActiveRecord::Schema.define(version: 20170419025704) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "condos", "clients"
+  add_foreign_key "debts", "tenants"
+  add_foreign_key "debts", "units"
+  add_foreign_key "units", "condos"
+  add_foreign_key "units", "tenants"
 end
