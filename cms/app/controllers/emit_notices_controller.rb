@@ -5,7 +5,7 @@ class EmitNoticesController < SecuredController
     @days = params[:search_days].present? ? params[:search_days].to_i : 0
     @amount = params[:search_amount].present? ? params[:search_amount].to_f : 0
 
-    @debts = Debt.where(notified: false, paid: false).select { |d| d.updated_amount >= @amount and d.days_in_debt >= @days }
+    @debts = Debt.where(paid: false).select { |d| d.updated_amount >= @amount and d.days_in_debt >= @days }
   end
 
   def emit
@@ -17,7 +17,7 @@ class EmitNoticesController < SecuredController
       NoticeMailer.notice_email(tenant, debts).deliver_later
     end
 
-    redirect_to root_url
+    redirect_to emit_notices_url, notice: 'Notices have been emitted'
 
   end
 

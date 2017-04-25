@@ -100,7 +100,7 @@ RSpec.describe CondosController, :type => :controller do
 
   describe "POST #create" do
 
-    it "creates the client successfully when valid params are provided" do
+    it "creates the condo successfully when valid params are provided" do
       user = create :user
       sign_in user
 
@@ -114,7 +114,7 @@ RSpec.describe CondosController, :type => :controller do
       expect(assigns(:condo)).to be_persisted
     end
 
-    it "does not create the client when there are validation errors" do
+    it "does not create the condo when there are validation errors" do
       user = create :user
       sign_in user
 
@@ -130,6 +130,71 @@ RSpec.describe CondosController, :type => :controller do
 
     it "redirects to sign in when it's not authenticated" do
       post :create
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
+
+  describe "GET #edit" do
+
+    it "responds successfully with an HTTP 200 status code" do
+      condo1 = create(:condo)
+      user = create :user
+      sign_in user
+
+      get :edit, id: condo1.id
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+      expect(assigns(:condo)).to be_a(Condo)
+      expect(assigns(:condo)).to match(condo1)
+    end
+
+    it "renders the edit template" do
+      condo1 = create(:condo)
+      user = create :user
+      sign_in user
+
+      get :edit, id: condo1.id
+      expect(response).to render_template("edit")
+      expect(assigns(:condo)).to be_a(Condo)
+      expect(assigns(:condo)).to match(condo1)
+    end
+
+    it "redirects to sign in when it's not authenticated" do
+      condo1 = create(:condo)
+      get :edit, id: condo1.id
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
+
+  describe "PUT #update" do
+
+    it "creates the condo successfully when valid params are provided" do
+      condo1 = create(:condo)
+      user = create :user
+      sign_in user
+
+      condo_new = build :condo
+
+      put :update, id: condo1.id, condo: condo_new.attributes
+
+      expect(assigns(:condo)).to be_a(Condo)
+      expect(assigns(:condo)).to be_persisted
+      expect(assigns(:condo)).to have_attributes(:name => condo_new.name)
+    end
+
+    it "does not update the condo when there are validation errors" do
+      condo1 = create(:condo)
+      user = create :user
+      sign_in user
+
+      put :update, id: condo1.id, condo: {name: ""}
+
+      expect(response).to render_template("edit")
+    end
+
+    it "redirects to sign in when it's not authenticated" do
+      condo1 = create(:condo)
+      put :update, id: condo1.id
       expect(response).to redirect_to new_user_session_path
     end
   end

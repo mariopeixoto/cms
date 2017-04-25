@@ -53,3 +53,8 @@ gem 'faker'
 gem 'money'
 
 gem 'rails_12factor', group: :production
+
+group :development, :test do
+    gem 'railroady'
+    gem "rails-erd"
+end

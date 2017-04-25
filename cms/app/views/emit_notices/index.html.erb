@@ -22,6 +22,7 @@
       <th><input id="debt_check_all" type="checkbox" /> Select all</th>
       <th>Updated amount after fine and interest</th>
       <th>Days in debt</th>
+      <th>Notified?</th>
     </tr>
   </thead>
   <tbody>
@@ -30,6 +31,9 @@
         <td><input name="debt_ids[]" type="checkbox" value="<%= debt.id %>"/></td>
         <td><%= Money.new(debt.updated_amount*100, "USD").format %></td>
         <td><%= debt.days_in_debt %></td>
+        <td>
+          <%= debt.notified? %>
+        </td>
       </tr>
     <% end %>
   </tbody>

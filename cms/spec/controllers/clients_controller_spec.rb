@@ -133,4 +133,69 @@ RSpec.describe ClientsController, :type => :controller do
       expect(response).to redirect_to new_user_session_path
     end
   end
+
+  describe "GET #edit" do
+
+    it "responds successfully with an HTTP 200 status code" do
+      client1 = create(:client)
+      user = create :user
+      sign_in user
+
+      get :edit, id: client1.id
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+      expect(assigns(:client)).to be_a(Client)
+      expect(assigns(:client)).to match(client1)
+    end
+
+    it "renders the edit template" do
+      client1 = create(:client)
+      user = create :user
+      sign_in user
+
+      get :edit, id: client1.id
+      expect(response).to render_template("edit")
+      expect(assigns(:client)).to be_a(Client)
+      expect(assigns(:client)).to match(client1)
+    end
+
+    it "redirects to sign in when it's not authenticated" do
+      client1 = create(:client)
+      get :edit, id: client1.id
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
+
+  describe "PUT #update" do
+
+    it "creates the client successfully when valid params are provided" do
+      client1 = create(:client)
+      user = create :user
+      sign_in user
+
+      client_new = build :client
+
+      put :update, id: client1.id, client: client_new.attributes
+
+      expect(assigns(:client)).to be_a(Client)
+      expect(assigns(:client)).to be_persisted
+      expect(assigns(:client)).to have_attributes(:name => client_new.name)
+    end
+
+    it "does not update the client when there are validation errors" do
+      client1 = create(:client)
+      user = create :user
+      sign_in user
+
+      put :update, id: client1.id, client: {name: ""}
+
+      expect(response).to render_template("edit")
+    end
+
+    it "redirects to sign in when it's not authenticated" do
+      client1 = create(:client)
+      put :update, id: client1.id
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
 end

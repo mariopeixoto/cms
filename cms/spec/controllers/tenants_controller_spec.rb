@@ -100,7 +100,7 @@ RSpec.describe TenantsController, :type => :controller do
 
   describe "POST #create" do
 
-    it "creates the client successfully when valid params are provided" do
+    it "creates the tenant successfully when valid params are provided" do
       user = create :user
       sign_in user
 
@@ -114,7 +114,7 @@ RSpec.describe TenantsController, :type => :controller do
       expect(assigns(:tenant)).to be_persisted
     end
 
-    it "does not create the client when there are validation errors" do
+    it "does not create the tenant when there are validation errors" do
       user = create :user
       sign_in user
 
@@ -130,6 +130,71 @@ RSpec.describe TenantsController, :type => :controller do
 
     it "redirects to sign in when it's not authenticated" do
       post :create
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
+
+  describe "GET #edit" do
+
+    it "responds successfully with an HTTP 200 status code" do
+      tenant1 = create(:tenant)
+      user = create :user
+      sign_in user
+
+      get :edit, id: tenant1.id
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+      expect(assigns(:tenant)).to be_a(Tenant)
+      expect(assigns(:tenant)).to match(tenant1)
+    end
+
+    it "renders the edit template" do
+      tenant1 = create(:tenant)
+      user = create :user
+      sign_in user
+
+      get :edit, id: tenant1.id
+      expect(response).to render_template("edit")
+      expect(assigns(:tenant)).to be_a(Tenant)
+      expect(assigns(:tenant)).to match(tenant1)
+    end
+
+    it "redirects to sign in when it's not authenticated" do
+      tenant1 = create(:tenant)
+      get :edit, id: tenant1.id
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
+
+  describe "PUT #update" do
+
+    it "creates the tenant successfully when valid params are provided" do
+      tenant1 = create(:tenant)
+      user = create :user
+      sign_in user
+
+      tenant_new = build :tenant
+
+      put :update, id: tenant1.id, tenant: tenant_new.attributes
+
+      expect(assigns(:tenant)).to be_a(Tenant)
+      expect(assigns(:tenant)).to be_persisted
+      expect(assigns(:tenant)).to have_attributes(:name => tenant_new.name)
+    end
+
+    it "does not update the tenant when there are validation errors" do
+      tenant1 = create(:tenant)
+      user = create :user
+      sign_in user
+
+      put :update, id: tenant1.id, tenant: {name: ""}
+
+      expect(response).to render_template("edit")
+    end
+
+    it "redirects to sign in when it's not authenticated" do
+      tenant1 = create(:tenant)
+      put :update, id: tenant1.id
       expect(response).to redirect_to new_user_session_path
     end
   end

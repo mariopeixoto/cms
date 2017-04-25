@@ -100,7 +100,7 @@ RSpec.describe DebtsController, :type => :controller do
 
   describe "POST #create" do
 
-    it "creates the client successfully when valid params are provided" do
+    it "creates the debt successfully when valid params are provided" do
       user = create :user
       sign_in user
 
@@ -114,7 +114,7 @@ RSpec.describe DebtsController, :type => :controller do
       expect(assigns(:debt)).to be_persisted
     end
 
-    it "does not create the client when there are validation errors" do
+    it "does not create the debt when there are validation errors" do
       user = create :user
       sign_in user
 
@@ -130,6 +130,71 @@ RSpec.describe DebtsController, :type => :controller do
 
     it "redirects to sign in when it's not authenticated" do
       post :create
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
+
+  describe "GET #edit" do
+
+    it "responds successfully with an HTTP 200 status code" do
+      debt1 = create(:debt)
+      user = create :user
+      sign_in user
+
+      get :edit, id: debt1.id
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+      expect(assigns(:debt)).to be_a(Debt)
+      expect(assigns(:debt)).to match(debt1)
+    end
+
+    it "renders the edit template" do
+      debt1 = create(:debt)
+      user = create :user
+      sign_in user
+
+      get :edit, id: debt1.id
+      expect(response).to render_template("edit")
+      expect(assigns(:debt)).to be_a(Debt)
+      expect(assigns(:debt)).to match(debt1)
+    end
+
+    it "redirects to sign in when it's not authenticated" do
+      debt1 = create(:debt)
+      get :edit, id: debt1.id
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
+
+  describe "PUT #update" do
+
+    it "creates the debt successfully when valid params are provided" do
+      debt1 = create(:debt)
+      user = create :user
+      sign_in user
+
+      debt_new = build :debt
+
+      put :update, id: debt1.id, debt: debt_new.attributes
+
+      expect(assigns(:debt)).to be_a(Debt)
+      expect(assigns(:debt)).to be_persisted
+      expect(assigns(:debt)).to have_attributes(:original_amount => debt_new.original_amount)
+    end
+
+    it "does not update the debt when there are validation errors" do
+      debt1 = create(:debt)
+      user = create :user
+      sign_in user
+
+      put :update, id: debt1.id, debt: {debt_type: ""}
+
+      expect(response).to render_template("edit")
+    end
+
+    it "redirects to sign in when it's not authenticated" do
+      debt1 = create(:debt)
+      put :update, id: debt1.id
       expect(response).to redirect_to new_user_session_path
     end
   end
